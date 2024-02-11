@@ -8,32 +8,57 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var message = "border frame infinty minimumscalefactor!"
+    @State private var message = "When the Genius Bar needs help, they call you!"
     
     var body: some View {
-        VStack {
-            Text(message)
-                .font(.largeTitle)
-                .fontWeight(.heavy)
-                .minimumScaleFactor(0.5)
-                .multilineTextAlignment(.center)
-                .foregroundStyle(.red)
-                .padding()
-                .frame(width: 300, height: 150)
-                .border(.orange, width: 1)
+        ZStack {
+            Rectangle()
+                .fill(
+                    Gradient(colors: [Color("SkyBlue"), .yellow])
+                )
+                .ignoresSafeArea()
             
-            HStack {
-                Button ("Awesome") {
-                    message = "You Are Awesome!"
-                }
-                .buttonStyle(.borderedProminent)
+            VStack {
+                Text("You Have Skills!")
+                    .font(.largeTitle)
+                    .fontWeight(.black)
+                    .foregroundStyle(Color("Gold-BC"))
+                    .padding()
+                    .background(Color("Maroon-BC"))
+                    .clipShape(RoundedRectangle(cornerRadius: 15))
                 
-                Button ("Great") {
-                    message = "You Are Great!"
+                Spacer()
+                
+                Text(message)
+                    .font(.largeTitle)
+                    .fontWeight(.heavy)
+                    .minimumScaleFactor(0.5)
+                    .multilineTextAlignment(.center)
+                    .foregroundStyle(.red)
+                    .frame(height: 150)
+                    .frame(maxWidth: .infinity)
+                    .border(.orange, width: 1)
+                    .padding()
+                
+                Spacer()
+                
+                HStack {
+                    Button ("Awesome") {
+                        message = "You Are Awesome!"
+                    }
+                    .buttonStyle(.borderedProminent)
+                    
+                    Spacer()
+                    
+                    Button ("Great") {
+                        message = "You Are Great!"
+                    }
+                    .buttonStyle(.borderedProminent)
                 }
-                .buttonStyle(.borderedProminent)
+                .padding()
+//                .tint(Color("Vermillion"))
             }
-            .border(.purple, width: 5)
+            
         }
     }
 }
