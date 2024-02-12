@@ -11,13 +11,7 @@ struct ContentView: View {
     @State private var message = "When the Genius Bar needs help, they call you!"
     
     var body: some View {
-        ZStack {
-            Rectangle()
-                .fill(
-                    Gradient(colors: [Color("SkyBlue"), .yellow])
-                )
-                .ignoresSafeArea()
-            
+        GeometryReader { geometry in
             VStack {
                 Text("You Have Skills!")
                     .font(.largeTitle)
@@ -42,6 +36,15 @@ struct ContentView: View {
                 
                 Spacer()
                 
+                Divider()
+                    .background(.black)
+                    .padding()
+                    .frame(width: 150)
+                
+                Rectangle()
+                    .fill(.indigo)
+                    .frame(width: geometry.size.width * (2/3), height: 1)
+                
                 HStack {
                     Button ("Awesome") {
                         message = "You Are Awesome!"
@@ -56,9 +59,7 @@ struct ContentView: View {
                     .buttonStyle(.borderedProminent)
                 }
                 .padding()
-//                .tint(Color("Vermillion"))
             }
-            
         }
     }
 }
