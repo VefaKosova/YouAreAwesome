@@ -15,7 +15,7 @@ struct ContentView: View {
             
             Spacer()
             
-            Image(systemName: "cloud.sun.rain.fill")
+            Image(systemName: "speaker.wave.3", variableValue: 0.51)
                 .resizable()
                 .scaledToFit()
                 .symbolRenderingMode(.multicolor)
