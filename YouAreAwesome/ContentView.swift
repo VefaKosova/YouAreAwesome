@@ -8,28 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var message = "Namaste"
+    @State private var messageString = ""
     
     var body: some View {
         VStack {
             
             Spacer()
             
-            Image(systemName: "speaker.wave.3", variableValue: 0.51)
-                .resizable()
-                .scaledToFit()
-                .symbolRenderingMode(.multicolor)
-                .padding()
-                .background(Color(hue: 0.521, saturation: 0.299, brightness: 0.958))
-                .clipShape(RoundedRectangle(cornerRadius: 30))
-                .shadow(color: .gray, radius: 30, x: 20, y: 20)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 30)
-                        .stroke(.teal, lineWidth: 1)
-                )
-                .padding()
-            
-            Text(message)
+            Text(messageString)
                 .font(.largeTitle)
                 .fontWeight(.heavy)
                 .minimumScaleFactor(0.5)
@@ -37,20 +23,23 @@ struct ContentView: View {
                 .foregroundStyle(.red)
                 .frame(height: 150)
                 .frame(maxWidth: .infinity)
+                .border(.orange)
                 .padding()
             
             Spacer()
         
             HStack {
-                Button ("Awesome") {
-                    message = "You Are Awesome!"
-                }
-                .buttonStyle(.borderedProminent)
-                
-                Spacer()
-                
-                Button ("Great") {
-                    message = "You Are Great!"
+                Button ("Show Message") {
+                    let message1 = "You Are Awesome!"
+                    let message2 = "You Are Great!"
+                    
+//                    if messageString == message1 {
+//                        messageString = message2
+//                    } else {
+//                        messageString = message1
+//                    }
+                    
+                    messageString = (messageString == message1 ? message2 : message1)
                 }
                 .buttonStyle(.borderedProminent)
             }
