@@ -48,7 +48,7 @@ struct ContentView: View {
                             audioPlayer.stop()
                         }
                     }
-                
+                 
                 Spacer()
                 
                 Button ("Show Message") {
