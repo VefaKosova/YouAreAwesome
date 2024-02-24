@@ -28,6 +28,7 @@ struct ContentView: View {
                 .frame(height: 150)
                 .frame(maxWidth: .infinity)
                 .padding()
+                .animation(.easeInOut(duration: 0.15), value: messageString)
             
             Image(imageName)
                 .resizable()
@@ -35,6 +36,7 @@ struct ContentView: View {
                 .clipShape(RoundedRectangle(cornerRadius: 30))
                 .shadow(radius: 30)
                 .padding()
+                .animation(.easeInOut(duration: 0.15), value: messageString)
             
             Spacer()
             
@@ -48,7 +50,8 @@ struct ContentView: View {
                             audioPlayer.stop()
                         }
                     }
-                 
+                    .tint(.indigo)
+                
                 Spacer()
                 
                 Button ("Show Message") {
@@ -67,6 +70,7 @@ struct ContentView: View {
                     playSound(soundName: "sound\(lastSoundNumber)")
                 }
                 .buttonStyle(.borderedProminent)
+                .tint(.orange)
             }
         }
         .padding()
